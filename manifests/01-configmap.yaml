@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tabview-config
+  namespace: prod
+  labels:
+    app: tabview
+data:
+  DB_HOST: "192.168.8.160"
+  FLASK_APP: "tab_view"
+  FLASK_DEBUG: "0"
+  RATELIMIT_STORAGE_URI: "memory://"

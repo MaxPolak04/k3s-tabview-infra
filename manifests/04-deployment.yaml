@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tabview-deployment
+  namespace: prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tabview
+  template:
+    metadata:
+      labels:
+        app: tabview
+    spec:
+      containers:
+        - name: tabview-app
+          image: ghcr.io/maxpolak04/tab_view:sha-4ee5b3993f3af97ef28fee83dfde92b11c3272d2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: tabview-config
+            - secretRef:
+                name: tabview-secret
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 60
+            periodSeconds: 10
+          readinessProbe: 
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 60
+            periodSeconds: 10
+          volumeMounts:
+            - name: uploads-storage
+              mountPath: /app/tab_view/static/uploads
+      volumes:
+        - name: uploads-storage
+          persistentVolumeClaim:
+            claimName: tabview-uploads-pvc

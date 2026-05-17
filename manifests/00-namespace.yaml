@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: prod
+  labels: 
+    environment: production
+    app: tabview
+  annotations: 
+    description: "Namespace for TabView app"
