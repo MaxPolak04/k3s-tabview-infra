@@ -4,7 +4,6 @@ metadata:
   name: tabview-deployment
   namespace: prod
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: tabview
