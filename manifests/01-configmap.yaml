@@ -6,7 +6,7 @@ metadata:
   labels:
     app: tabview
 data:
-  DB_HOST: "192.168.8.160"
+  DB_HOST: "10.42.0.1"
   FLASK_APP: "tab_view"
   FLASK_DEBUG: "0"
   RATELIMIT_STORAGE_URI: "memory://"
