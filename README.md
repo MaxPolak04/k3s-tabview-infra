@@ -48,6 +48,16 @@ The source code and application development repository can be found here:
 
 ---
 
+## 🎓 Academic Context & Full Documentation
+
+This repository and the underlying infrastructure were originally designed, implemented, and defended as the final engineering project for the **Linux Server Management** laboratory at Collegium Da Vinci.
+
+The project successfully demonstrates the practical application of Linux administration, container orchestration (K3s), and modern GitOps workflows. For a deep dive into the exact installation procedures, hardware setup, network configuration, and architectural diagrams used during the defense, refer to the full presentation documentation below:
+
+📄 **[View / Download the Full Technical Presentation (PDF)](./K3s-Hybrid-Cluster-Documentation.pdf)**
+
+---
+
 ## 🎯 Key Engineering Takeaways (Value for Recruiters)
 1.  **Infrastructure as Code (IaC) Paradigm:** Full mastery of declarative Kubernetes manifests. Infrastructure changes are tracked, auditable, and kept in sync.
 2.  **Hybrid Cloud & Linux Administration:** Demonstrated ability to bridge immutable, container-optimized OS environments (Flatcar) with traditional Linux distributions (Debian & Arch/EndeavourOS). Strong proficiency in `systemd`, native firewalls, cluster networking, and storage layers.
