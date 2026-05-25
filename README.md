@@ -4,15 +4,11 @@ This repository serves as the central **Single Source of Truth** for the declara
 
 The infrastructure is designed to simulate professional **Cloud Native** operations, deployment automation, and advanced Linux systems administration.
 
----
-
 ## 🛠️ Tech Stack and Key Concepts
 * **Orchestration:** K3s (a lightweight, optimized Kubernetes distribution)
 * **Operating Systems:** Flatcar Container Linux (Immutable/Atomic OS), Debian 12 (Classic Server), EndeavourOS (Arch-based Control Plane)
 * **Networking & Security:** Flannel (VxLAN), Kubernetes Network Policies, Linux UFW (Uncomplicated Firewall)
 * **Scalability:** Horizontal Pod Autoscaler (HPA) driven by resource metrics
-
----
 
 ## 🏗️ Hybrid Environment Architecture
 
@@ -24,8 +20,6 @@ The cluster is distributed across a local area network (LAN) (`192.168.8.0/24`) 
     * *Role:* Maintenance of traditional system services outside the cluster. It hosts a native MariaDB database instance managed by `systemd` and secured by `ufw` to demonstrate the integration of traditional server workloads with containerized environments.
 3.  **Node 3 (Atomic Worker)** | `192.168.8.170` | **Flatcar Container Linux**
     * *Role:* Secure runtime environment for production applications. An immutable, *Read-Only* operating system configured fully declaratively during boot using *Ignition* files.
-
----
 
 ## 🚀 Application Deployment (TabView)
 
@@ -40,13 +34,9 @@ The core workload hosted on this infrastructure is **TabView**, a containerized 
 The source code and application development repository can be found here:
 🔗 **[TabView Application Source Code](https://github.com/maxpolak04/tab_view)**.
 
----
-
 ## 🔐 Security Considerations & Day-2 Roadmap
 * **Current State (Secrets Management):** For the scope of this academic/lab project, native Kubernetes `Secrets` are stored within the Git manifests using standard Base64 encoding. While acceptable for demonstrating container configuration with mock/test credentials in an isolated laboratory network, this represents a known anti-pattern for production GitOps workflows.
 * **Production Roadmap (Day-2 Operations):** To scale this infrastructure to a production-ready state, the next phase involves implementing a secure, encrypted GitOps secrets workflow. The defined roadmap includes deploying **Bitnami Sealed Secrets** (utilizing asymmetric encryption so that encrypted manifests can safely live in public Git history and only be decrypted by the in-cluster controller) or integrating **Mozilla SOPS** backed by an external Key Management Service (KMS) or HashiCorp Vault.
-
----
 
 ## 🎓 Academic Context & Full Documentation
 
@@ -55,8 +45,6 @@ This repository and the underlying infrastructure were originally designed, impl
 The project successfully demonstrates the practical application of Linux administration, container orchestration (K3s), and modern GitOps workflows. For a deep dive into the exact installation procedures, hardware setup, network configuration, and architectural diagrams used during the defense, refer to the full presentation documentation below:
 
 📄 **[View / Download the Full Technical Presentation (PDF)](./K3s-Hybrid-Cluster-Documentation.pdf)**
-
----
 
 ## 🎯 Key Engineering Takeaways (Value for Recruiters)
 1.  **Infrastructure as Code (IaC) Paradigm:** Full mastery of declarative Kubernetes manifests. Infrastructure changes are tracked, auditable, and kept in sync.
